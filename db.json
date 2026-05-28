@@ -1,0 +1,112 @@
+{
+  "tasks": [
+    {
+      "title": "học lập trình",
+      "description": "Học lập trình f8",
+      "category": "development",
+      "priority": "low",
+      "startTime": "10:20",
+      "endTime": "15:20",
+      "dueDate": "2026-05-29",
+      "cardColor": "purple",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "title": "học lập trình",
+      "description": "Học lập trình f8",
+      "category": "development",
+      "priority": "low",
+      "startTime": "10:20",
+      "endTime": "15:20",
+      "dueDate": "2026-05-29",
+      "cardColor": "purple",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "title": "học lập trình",
+      "description": "Học lập trình f8",
+      "category": "development",
+      "priority": "low",
+      "startTime": "10:20",
+      "endTime": "15:20",
+      "dueDate": "2026-05-29",
+      "cardColor": "purple",
+      "completed": true,
+      "id": 3
+    },
+    {
+      "title": "họp",
+      "description": "họp ở tòa nha A",
+      "category": "meeting",
+      "priority": "high",
+      "startTime": "10:20",
+      "endTime": "15:20",
+      "dueDate": "2026-05-30",
+      "cardColor": "green",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "title": "học lập trình java",
+      "description": "Học lập trình f8",
+      "category": "development",
+      "priority": "low",
+      "startTime": "10:20",
+      "endTime": "15:20",
+      "dueDate": "2026-05-29",
+      "cardColor": "purple",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "title": "học lập trình",
+      "description": "Học lập trình f8",
+      "category": "development",
+      "priority": "low",
+      "startTime": "10:20",
+      "endTime": "15:20",
+      "dueDate": "2026-05-29",
+      "cardColor": "green",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "title": "học lập trình",
+      "description": "Học lập trình f8",
+      "category": "development",
+      "priority": "low",
+      "startTime": "10:20",
+      "endTime": "15:20",
+      "dueDate": "2026-05-29",
+      "cardColor": "pink",
+      "completed": true,
+      "id": 7
+    },
+    {
+      "title": "học lập trình",
+      "description": "Học lập trình f8",
+      "category": "development",
+      "priority": "low",
+      "startTime": "10:20",
+      "endTime": "15:20",
+      "dueDate": "2026-05-29",
+      "cardColor": "yellow",
+      "completed": false,
+      "id": 8
+    },
+    {
+      "title": "học lập trình",
+      "description": "Học lập trình f8",
+      "category": "development",
+      "priority": "low",
+      "startTime": "10:20",
+      "endTime": "15:20",
+      "dueDate": "2026-05-29",
+      "cardColor": "blue",
+      "completed": true,
+      "id": 10
+    }
+  ]
+}
