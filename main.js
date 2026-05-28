@@ -21,8 +21,6 @@ const cardColor = $("#taskColor");
 const tabButton = $$(".tab-button");
 const search = $(".search-input");
 
-console.log(search);
-
 let currentEditId = null;
 let allTasks = [];
 let currentFilter = "all";
@@ -31,9 +29,9 @@ let searchTimeout = null;
 
 function exitModal() {
   taskModal.classList.remove("show");
-  if (todoForm) todoForm.reset();
 }
 
+//filter tabs
 function filterTasks() {
   let filteredTask = [];
 
@@ -54,6 +52,7 @@ function filterTasks() {
   renderTasks(filteredTask);
 }
 
+//search
 if (search) {
   search.addEventListener("input", (e) => {
     clearTimeout(searchTimeout);
@@ -65,6 +64,7 @@ if (search) {
   });
 }
 
+//tabs
 tabButton.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     $(".tab-button.active").classList.remove("active");
@@ -94,8 +94,12 @@ openModal.addEventListener("click", () => {
 });
 
 closeModal.addEventListener("click", exitModal);
-cancelModal.addEventListener("click", exitModal);
+cancelModal.addEventListener("click", () => {
+  exitModal();
+  if (todoForm) todoForm.reset();
+});
 
+//create task
 createBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
@@ -133,20 +137,22 @@ createBtn.addEventListener("click", async (e) => {
     todoForm.reset();
     exitModal();
   } catch (error) {
-    console.error("Lỗi khi tạo task:", error);
+    console.error("Error create task:", error);
   }
 });
 
+//get API task to UI
 async function fetchTasks() {
   try {
     const response = await fetch(`${API_URL}tasks?_sort=id&_order=desc`);
     allTasks = await response.json();
     filterTasks();
   } catch (error) {
-    console.error("Lỗi khi fetch tasks:", error);
+    console.error("Error fetch tasks:", error);
   }
 }
 
+//render task
 function renderTasks(tasks) {
   taskGrid.innerHTML = "";
 
@@ -227,6 +233,7 @@ function renderTasks(tasks) {
   });
 }
 
+//function delete, edit, completed
 taskGrid.addEventListener("click", async (e) => {
   const taskCard = e.target.closest(".task-card");
   const deleteBtn = e.target.closest(".delete-task");
@@ -245,7 +252,7 @@ taskGrid.addEventListener("click", async (e) => {
       allTasks = allTasks.filter((task) => task.id != id);
       if (taskCard) taskCard.remove();
     } catch (error) {
-      console.error("Lỗi khi xóa task:", error);
+      console.error("Error remove task:", error);
     }
   }
 
@@ -273,7 +280,7 @@ taskGrid.addEventListener("click", async (e) => {
         throw new Error(`Connection error: ${response.status}`);
       }
     } catch (error) {
-      console.log("Lỗi khi complete:", error);
+      console.log("Error complete:", error);
     }
   }
 
@@ -298,12 +305,17 @@ taskGrid.addEventListener("click", async (e) => {
       createBtn.textContent = "Save Changes";
 
       taskModal.classList.add("show");
+      closeModal.addEventListener("click", () => {
+        exitModal;
+        if (todoForm) todoForm.reset();
+      });
     } catch (error) {
-      console.error("Lỗi khi lấy thông tin", error);
+      console.error("Error get info", error);
     }
   }
 });
 
+//trans hours, minutes
 function convertTo12Hour(time) {
   if (time === "" || time === null) return "";
   let [hours, minutes] = time.split(":");
